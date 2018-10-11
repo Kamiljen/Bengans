@@ -26,6 +26,7 @@ namespace BengansBowling.Account
         public void SendToBilling(User user)
         {
             _billing.BillUser(user);
+            user.Billed = true;
         }
 
         public bool UserBilled(User user)
@@ -33,11 +34,12 @@ namespace BengansBowling.Account
             return _billing.UserBilled(user);
         }
 
+
         public User GetUser(string userName)
         {
             return _userRepo.GetUser(userName);
         }
-        public User GetUsers()
+        public List<User> GetUsers()
         {
             return _userRepo.GetUsers();
         }
