@@ -1,4 +1,5 @@
-﻿using BengansBowling.Account;
+﻿
+using BengansBowling.UserFactory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,22 +9,22 @@ namespace BengansBowling.Repositorys
 {
     public class UserRepo
     {
-        private static List<User> users;
+        private static List<Member> users;
 
         public UserRepo()
         {
-            users = new List<User>();
+            users = new List<Member>();
         }
 
-        public void AddUser(User user)
+        public void AddUser(Member user)
         {
             users.Add(user);
         }
-        public User GetUser(string userName)
+        public Member GetUser(string userName)
         {
             return users.SingleOrDefault(x=>x.Name == userName);
         }
-        public List<User> GetUsers()
+        public List<Member> GetUsers()
         {
             return users;
         }

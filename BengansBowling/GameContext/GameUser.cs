@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BengansBowling.Game
+namespace BengansBowling.GameContext
 {
     public class GameUser
     {

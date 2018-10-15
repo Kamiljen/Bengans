@@ -1,4 +1,5 @@
-﻿using BengansBowling.Account;
+﻿
+using BengansBowling.UserFactory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,18 +9,18 @@ namespace BengansBowling.FortKnox
 {
     public class FortKnoxBilling
     {
-        static List<User> billedUsers;
+        static List<Member> billedUsers;
         public FortKnoxBilling()
         {
-            billedUsers = new List<User>();
+            billedUsers = new List<Member>();
         }
 
-        public void BillUser(User user)
+        public void BillUser(Member user)
         {
            billedUsers.Add(user);
         }
 
-        public bool UserBilled(User user)
+        public bool UserBilled(Member user)
         {
             return billedUsers.Any(x=>x.Name == user.Name);
         }

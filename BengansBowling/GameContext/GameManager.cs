@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using BengansBowling.BookingContext;
 
-namespace BengansBowling.Game
+namespace BengansBowling.GameContext
 {
     public class GameManager
     {
@@ -11,7 +12,7 @@ namespace BengansBowling.Game
 
         }
 
-        public void NewGame()
+        public void NewGame(Booking booking)
         {
 
         }
