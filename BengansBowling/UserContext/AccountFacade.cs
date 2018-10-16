@@ -12,10 +12,10 @@ namespace BengansBowling.UserContext
     public class AccountFacade
     {
 
-        private readonly FortKnoxBilling _billing;
+        private readonly IFortKnox _billing;
         private readonly UserRepo _userRepo;
 
-        public AccountFacade(FortKnoxBilling billing, UserRepo userRepo)
+        public AccountFacade(IFortKnox billing, UserRepo userRepo)
         {
             _billing = billing;
             _userRepo = userRepo;
@@ -31,14 +31,14 @@ namespace BengansBowling.UserContext
 
         public void SendToBilling(Member user)
         {
-            _billing.BillUser(user);
+            _billing.BillMemberFee(user.Id);
             var membership = user.Memberships.OrderByDescending(x => x.CurrentYear).First();
             membership.HasPayedForYear = true;
         }
 
-        public bool UserBilled(Membership user)
+        public bool UserBilled(Member user)
         {
-            return _billing.UserBilled(user.User);
+            return _billing.MemberFeePayed(user.Id);
         }
 
         public Member GetUser(string userName)
